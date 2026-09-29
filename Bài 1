@@ -1,32 +1,6 @@
-/*  Cho một mảng số nguyên chưa sắp xếp, tìm một cặp có tổng đã cho.
-
-    Input: nums = [8, 7, 2, 5, 3, 1]
-    target = 10 
-    Output: Pair found (8, 2) 
-            or 
-            Pair found (7, 3) 
-
-    Input: nums = [5, 2, 6, 8, 1, 9]
-    target = 12 
-    Output: Pair not found.
-*/
 #include <stdio.h>
-int main(){
-  int nums [100];
-  printf ("num = ");
-
-  int n = 0;
-  while (scanf("%d", &nums[n]) == 1){
-    n++;
-    char c = getchar();
-    if (c == ',') continue;
-    if (c == '\n') break;
-  }
-  int target;
-  printf ("target = ");
-  scanf ("%d", &target);
-
-  int found = 0;
+int findPair (int nums[], int target, int n){
+int found = 0;
   for (int i=0; i<n-1; i++){
     for (int j=i+1; j<n; j++){
       if (nums[i] + nums [j] == target){
@@ -39,5 +13,26 @@ int main(){
   if (found == 0){
     printf ("Pair not found.");
   }
+return 0;
+}
+int main(){
+  int nums [100];
+  printf ("Nhập các số nguyên khác nhau, mỗi số cách nhau bằng dấu phẩy\n");
+  printf ("num = "); 
+
+// Lưu các số được người dùng nhập vào
+  int n = 0;
+  while (scanf("%d", &nums[n]) == 1){
+    n++;
+    char c = getchar();       
+    if (c == ',') continue;
+    if (c == '\n') break;
+  }
+
+  int target;
+  printf ("target = ");
+  scanf ("%d", &target);
+
+  findPair (nums, target, n);
 return 0;
 }
